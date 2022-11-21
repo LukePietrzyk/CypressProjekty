@@ -1,6 +1,6 @@
 /// <reference types="cypress"/>
 
-describe("Login and create post", () => {
+describe("Api,Login and create post", () => {
   it("Verification API tags", () => {
     cy.intercept("GET", "htts://api.realworld.io/api/tags").as("requestTag");
     cy.visit("https://angular.realworld.io/");
