@@ -30,7 +30,7 @@ describe("Login and create post", () => {
     cy.url().should("include", "article");
   });
 
-  it("Mark as favorite", function () {
+  it("Mark as favorite", ()=> {
     cy.get(".nav-link").contains("ScorpionFile1").click();
     cy.contains("My Articles").should("be.visible");
     cy.get(".ion-heart").first().click();
