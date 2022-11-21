@@ -1,6 +1,15 @@
 /// <reference types="cypress"/>
 
 describe("Login and create post", () => {
+  it("Verification API tags", () => {
+    cy.intercept("GET", "htts://api.realworld.io/api/tags").as("requestTag");
+    cy.visit("https://angular.realworld.io/");
+    cy.wait("@requestTag");
+    cy.get("@requestTag").then((res) => {
+      expect(res.response.statusCode).to.equal(200);
+        expect(res.body.tags).to.contain("welcome").and.to.contain('implementations');
+    });
+  });
   it("Should Sign in", () => {
     cy.visit("https://react-redux.realworld.io/#/login/");
     cy.title().should("eq", "Conduit");
