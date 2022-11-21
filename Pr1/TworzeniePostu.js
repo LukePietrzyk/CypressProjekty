@@ -2,7 +2,7 @@
 
 describe("Api,Login and create post", () => {
   it("Verification API tags", () => {
-    cy.intercept("GET", "htts://api.realworld.io/api/tags").as("requestTag");
+    cy.intercept("GET", "https://api.realworld.io/api/tags").as("requestTag");
     cy.visit("https://angular.realworld.io/");
     cy.wait("@requestTag");
     cy.get("@requestTag").then((res) => {
